@@ -35,7 +35,15 @@
             >Registrati</a
           >
         </li>
+        <li *ngIf="!logged" class="nav-item">
+          <a class="nav-link" routerLink="/auth/login" routerLinkActive="active"
+            >Login</a
+          >
+        </li>
       </ul>
+      <button *ngIf="logged" class="btn btn-danger" (click)="logout()">
+        Logout
+      </button>
     </div>
   </div>
 </nav>

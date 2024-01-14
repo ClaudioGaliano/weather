@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { CitysearchComponent } from './components/citysearch/citysearch.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
-import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,6 @@ import { SignupComponent } from './components/signup/signup.component';
     WeatherComponent,
     CitysearchComponent,
     NavbarComponent,
-    SignupComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

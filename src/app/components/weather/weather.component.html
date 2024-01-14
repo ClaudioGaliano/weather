@@ -1,4 +1,97 @@
-<div class="myContainer">
+<section class="top-section">
+  <div>
+    <h1>January 2024</h1>
+    <h3>Friday, Jan 12, 2024</h3>
+  </div>
+  <div>
+    <app-citysearch></app-citysearch>
+  </div>
+</section>
+
+<section class="weather_data">
+  <div class="main-cards">
+    <!-- card 1 -->
+    <div class="card_wrap">
+      <div class="card_icon">
+        <img src="assets\img\wind-icon.png" alt="icon" class="icon_wind" />
+      </div>
+      <div class="card_body">
+        <div class="card_title">Wind Speed</div>
+        <div class="card_data">{{ windspeed }}</div>
+      </div>
+    </div>
+    <!-- card 2 -->
+    <div class="card_wrap">
+      <div class="card_icon">
+        <img src="assets\img\wind-icon.png" alt="icon" class="icon_wind" />
+      </div>
+      <div class="card_body">
+        <div class="card_title">Wind Speed</div>
+        <div class="card_data">15.3 km/h</div>
+      </div>
+    </div>
+    <!-- card 3 -->
+    <div class="card_wrap">
+      <div class="card_icon">
+        <img src="assets\img\wind-icon.png" alt="icon" class="icon_wind" />
+      </div>
+      <div class="card_body">
+        <div class="card_title">Wind Speed</div>
+        <div class="card_data">15.3 km/h</div>
+      </div>
+    </div>
+    <!-- card 4 -->
+    <div class="card_wrap">
+      <div class="card_icon">
+        <img src="assets\img\wind-icon.png" alt="icon" class="icon_wind" />
+      </div>
+      <div class="card_body">
+        <div class="card_title">Wind Speed</div>
+        <div class="card_data">15.3 km/h</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<aside class="sidebar_wrap">
+  <div class="sidebar_location">
+    <div class="location_wrap">
+      <div class="location_city">{{ city }}</div>
+      <div class="location_country">{{ country }}</div>
+    </div>
+    <div class="time_wrap">{{ daytime }}</div>
+  </div>
+  <div class="sidebar_icon">
+    <img src="assets\img\wind-icon.png" alt="icon" class="icon" />
+  </div>
+  <div class="sidebar_weather">
+    <div class="temperature">{{ temperature }} °C</div>
+    <div class="weather__description">{{ summary }}</div>
+  </div>
+  <h3>Sunrise &amp; Sunset</h3>
+  <div class="suntimes_wrap">
+    <div class="sun_wrap">
+      <div class="suntime_wrap">
+        <div class="time_data">
+          <h4>sunrise</h4>
+          {{ sunrise }}
+        </div>
+      </div>
+      <div class="time_difference">9 hours ago</div>
+    </div>
+    <div class="sun_wrap">
+      <div class="suntime_wrap">
+        <div class="time_data">
+          <h4>sunset</h4>
+          {{ sunset }}
+        </div>
+      </div>
+      <div class="time_difference">9 hours ago</div>
+    </div>
+  </div>
+</aside>
+
+<!-- <div class="myContainer">
   <div class="card text-bg-primary m-5" style="max-width: 18rem; width: 20rem">
     <div class="card-header text-center">
       <h2>{{ city }}</h2>
@@ -12,4 +105,4 @@
       <p class="card-text">Humidity: {{ pressure }} %</p>
     </div>
   </div>
-</div>
+</div> -->

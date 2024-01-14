@@ -1,3 +1,22 @@
 {
-  "users": []
+  "users": [
+    {
+      "email": "gianni@gmail.com",
+      "password": "$2a$10$Jsj7PsMGNdXOF9wVTx4Iuezob04KktRSYKiHIaXBfiGck8FwnkiSC",
+      "username": "gianni",
+      "id": 1
+    },
+    {
+      "email": "mariorossi@gmail.com",
+      "password": "$2a$10$RoFm32DF/eJidyi7LNWy7e1wJknxXRMZMrmSycBWBPcjeVqVJswWa",
+      "username": "gianni2",
+      "id": 2
+    },
+    {
+      "email": "user@gmail.com",
+      "password": "$2a$10$ri9liDMkgxrdOH0lHC5/sOyyiHKmJG6OgptNF8v0Pq/inViG1rHYi",
+      "username": "user",
+      "id": 3
+    }
+  ]
 }
