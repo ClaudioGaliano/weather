@@ -9,6 +9,7 @@ import { CitysearchComponent } from './components/citysearch/citysearch.componen
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { WeatherChartComponent } from './components/weather-chart/weather-chart.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { WeatherChartComponent } from './components/weather-chart/weather-chart.
     NavbarComponent,
     WeatherChartComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgChartsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
