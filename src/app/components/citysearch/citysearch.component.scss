@@ -23,4 +23,23 @@
             outline:none!important;
         }
     }
+
+    svg {
+        color: rgba(18, 38, 58, 0.5);
+        height: 100%;
+        margin-right: 10px;
+        width: 3em;
+    }
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+}
+
+.searchBtn {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
 }

@@ -49,14 +49,14 @@ export class WeatherChartComponent implements OnInit {
         // // Prendi solo le prime 5 previsioni (per i prossimi 5 giorni)
         // previsioniFiltrate = previsioniFiltrate.slice(0, 5);
 
-        // // Estrai le etichette e i dati del grafico come prima
+        // // Estrai le etichette e i dati del grafico
         // let labels = previsioniFiltrate.map((h: any) =>
         //   new Date(h.dt_txt).toLocaleString()
         // );
         // let dataChart = previsioniFiltrate.map((h: any) => h.main.temp);
 
         // RILEVAZIONE PROSSIME 8 PREVISIONI
-        // Elabora la risposta per ottenere i dati di cui hai bisogno
+        // Elabora la risposta per ottenere i dati
         // let labels = forecast.list
         //   .slice(0, 8)
         //   .map((h: any) => new Date(h.dt * 1000).toLocaleString());
@@ -79,7 +79,7 @@ export class WeatherChartComponent implements OnInit {
           return dataPrevisione >= oraCorrente && dataPrevisione <= oraFutura;
         });
 
-        // Estrai le etichette e i dati del grafico come prima
+        // Estrai le etichette e i dati del grafico
         let labels = previsioniFiltrate.map((h: any) =>
           new Date(h.dt_txt).toLocaleTimeString([], {
             hour: '2-digit',

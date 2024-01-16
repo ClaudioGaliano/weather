@@ -42,55 +42,92 @@ export class WeatherComponent implements OnInit {
           // Conversione del timestamp Unix
           let timestamp = this.myWeather.dt;
           let data = new Date(timestamp * 1000);
-          let ora = data.getHours();
-          let minuti = data.getMinutes().toString().padStart(2, '0'); // Aggiunge uno zero all'inizio se i minuti sono meno di 10
+
+          // Ottieni il fuso orario dalla tua API (in secondi)
+          let timezone = this.myWeather.timezone;
+
+          // Calcola il fuso orario in ore
+          let timezoneInHours = timezone / 3600;
+
+          // Aggiungi il fuso orario alla data UTC
+          data.setUTCHours(data.getUTCHours() + timezoneInHours);
+
+          // Estrai l'ora e i minuti
+          let ora = data.getUTCHours();
+          let minuti = data.getUTCMinutes().toString().padStart(2, '0'); // Aggiunge uno zero all'inizio se i minuti sono meno di 10
+
+          // Imposta l'ora locale della città
           this.daytime = `${ora}:${minuti}`;
 
           // Sunrise
           let sunriseTs = this.myWeather.sys.sunrise;
           let sunriseData = new Date(sunriseTs * 1000);
-          let sunriseOra = sunriseData.getHours();
-          let sunriseMinuti = sunriseData
-            .getMinutes()
+
+          // Aggiungi il fuso orario alla data UTC
+          sunriseData.setUTCHours(sunriseData.getUTCHours() + timezoneInHours);
+
+          let sunriseHours = sunriseData.getUTCHours();
+          let sunriseMinutes = sunriseData
+            .getUTCMinutes()
             .toString()
             .padStart(2, '0');
-          this.sunrise = `${sunriseOra}:${sunriseMinuti}`;
+          this.sunrise = `${sunriseHours}:${sunriseMinutes}`;
 
           // Hours from Sunrise
-          // Calcola la differenza in millisecondi
-
           let differenceSr = data.getTime() - sunriseData.getTime();
 
-          // Converte la differenza in ore
           let differenceHoursSr = differenceSr / (1000 * 60 * 60);
-
-          // Arrotonda alla seconda cifra decimale
           differenceHoursSr = Math.round(differenceHoursSr * 100) / 100;
 
-          // Calcola le ore e i minuti trascorsi dall'alba
-          let hoursSr = Math.floor(differenceHoursSr);
-          let minutesSr = Math.round((differenceHoursSr - hoursSr) * 60);
-          this.timeFromSunrise = `${hoursSr} hours and ${minutesSr} minutes ago`;
+          // Calcola le ore e i minuti
+          let hoursSr = Math.floor(Math.abs(differenceHoursSr));
+          let minutesSr = Math.round(
+            (Math.abs(differenceHoursSr) - hoursSr) * 60
+          );
+
+          // Controlla se la differenza è negativa
+          if (differenceSr < 0) {
+            // Se è negativa, l'alba è nel futuro
+            this.timeFromSunrise = `In ${hoursSr} hours and ${minutesSr} minutes`;
+          } else {
+            // Se è positiva, l'alba è nel passato
+            this.timeFromSunrise = `${hoursSr} hours and ${minutesSr} minutes ago`;
+          }
 
           // Sunset
           let sunsetTs = this.myWeather.sys.sunset;
           let sunsetData = new Date(sunsetTs * 1000);
-          let sunsetOra = sunsetData.getHours();
-          let sunsetMinuti = sunriseData
-            .getMinutes()
+
+          // Aggiungi il fuso orario alla data UTC
+          sunsetData.setUTCHours(sunsetData.getUTCHours() + timezoneInHours);
+
+          let sunsetHours = sunsetData.getUTCHours();
+          let sunsetMinutes = sunsetData
+            .getUTCMinutes()
             .toString()
             .padStart(2, '0');
-          this.sunset = `${sunsetOra}:${sunsetMinuti}`;
+          this.sunset = `${sunsetHours}:${sunsetMinutes}`;
 
           // Hours from Sunset
           let differenceSs = data.getTime() - sunsetData.getTime();
+
           let differenceHoursSs = differenceSs / (1000 * 60 * 60);
           differenceHoursSs = Math.round(differenceHoursSs * 100) / 100;
 
-          // Calcola le ore e i minuti trascorsi dal tramonto
-          let hoursSs = Math.floor(differenceHoursSs);
-          let minutesSs = Math.round((differenceHoursSs - hoursSs) * 60);
-          this.timeFromSunset = `${hoursSs} hours and ${minutesSs} minutes ago`;
+          // Calcola le ore e i minuti
+          let hoursSs = Math.floor(Math.abs(differenceHoursSs));
+          let minutesSs = Math.round(
+            (Math.abs(differenceHoursSs) - hoursSs) * 60
+          );
+
+          // Controlla se la differenza è negativa
+          if (differenceSs < 0) {
+            // Se è negativa, il tramonto è nel futuro
+            this.timeFromSunset = `In ${hoursSs} hours and ${minutesSs} minutes`;
+          } else {
+            // Se è positiva, il tramonto è nel passato
+            this.timeFromSunset = `${hoursSs} hours and ${minutesSs} minutes ago`;
+          }
 
           // Wind
           this.windspeed = `${(this.myWeather.wind.speed * 3.6).toFixed(
