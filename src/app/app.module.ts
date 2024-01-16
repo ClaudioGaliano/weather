@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CitysearchComponent } from './components/citysearch/citysearch.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import { WeatherChartComponent } from './components/weather-chart/weather-chart.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     WeatherComponent,
     CitysearchComponent,
     NavbarComponent,
+    WeatherChartComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
