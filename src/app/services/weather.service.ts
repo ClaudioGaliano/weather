@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class WeatherService {
   // https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
-  private apiKey = '4f1d2dd3848f952428b4afd1cc36277b';
+  private apiKey = 'INSERT API key here';
 
   // Imposta la città predefinita su 'Milano'
   private citySource = new BehaviorSubject<string>('Milano');

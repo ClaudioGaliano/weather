@@ -21,7 +21,7 @@ export class WeatherChartComponent implements OnInit {
         labels: [],
         datasets: [
           {
-            label: 'Temperatura',
+            label: 'Temperature',
             data: [],
             // ...
           },

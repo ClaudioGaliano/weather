@@ -144,34 +144,34 @@ export class WeatherComponent implements OnInit {
           let giorno = today.getDate();
           let giornoSettimana = today.getDay();
           let giorniSettimana = [
-            'Domenica',
-            'Lunedì',
-            'Martedì',
-            'Mercoledì',
-            'Giovedì',
-            'Venerdì',
-            'Sabato',
+            'Sunday',
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday',
           ];
           let giornoSettimanaNome = giorniSettimana[giornoSettimana];
           let mese = today.getMonth(); // I mesi iniziano da 0 in JavaScript
           let mesi = [
-            'Gennaio',
-            'Febbraio',
-            'Marzo',
-            'Aprile',
-            'Maggio',
-            'Giugno',
-            'Luglio',
-            'Agosto',
-            'Settembre',
-            'Ottobre',
-            'Novembre',
-            'Dicembre',
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December',
           ];
           let meseNome = mesi[mese];
           let anno = today.getFullYear();
           this.monthYear = `${meseNome} ${anno}`;
-          this.date = `${giornoSettimanaNome}, ${giorno} ${meseNome}, ${anno}`;
+          this.date = `${giornoSettimanaNome}, ${meseNome} ${giorno}, ${anno}`;
 
           this.temperature = this.myWeather.main.temp;
           this.feelsLikeTemp = this.myWeather.main.feels_like;
